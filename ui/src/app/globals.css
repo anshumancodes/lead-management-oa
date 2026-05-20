@@ -3,7 +3,7 @@
 
 @import "tailwindcss";
 
-/Design Tokens 
+
 :root {
   --card: #fcfcfc;
   --ring: #72e3ad;
