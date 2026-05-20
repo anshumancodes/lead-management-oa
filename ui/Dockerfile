@@ -12,6 +12,13 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+ARG NEXT_PUBLIC_API_URL
+ARG BUILD_STANDALONE=true
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV BUILD_STANDALONE=$BUILD_STANDALONE
+ENV NEXT_TELEMETRY_DISABLED=1
+
 RUN npm run build
 
 #Stage 3: production runner
