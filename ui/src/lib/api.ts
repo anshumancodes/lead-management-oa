@@ -1,6 +1,8 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/api/v1';
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  'https://lead-management-oa.onrender.com/api/v1';
 
 export const api = axios.create({
   baseURL: BASE_URL,

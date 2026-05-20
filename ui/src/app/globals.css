@@ -233,3 +233,44 @@ body {
   background: var(--primary);
   color: var(--primary-foreground);
 }
+
+/* ── Legacy variable aliases ────────────────────────────────────────────────
+   Components still reference the old naming scheme. These aliases map the old
+   names to the new palette so no component files need to be touched.        */
+:root {
+  /* Text */
+  --text-primary:   var(--foreground);
+  --text-secondary: var(--muted-foreground);
+  --text-muted:     var(--muted-foreground);
+
+  /* Surfaces */
+  --surface:   var(--card);
+  --surface-2: var(--muted);
+
+  /* Accent → primary (green) */
+  --accent:       var(--primary);
+  --accent-hover: var(--primary);
+  --accent-light: color-mix(in srgb, var(--primary) 18%, transparent);
+
+  /* Danger → destructive */
+  --danger:       var(--destructive);
+  --danger-light: color-mix(in srgb, var(--destructive) 20%, transparent);
+
+  /* Status colours */
+  --success:       #22c55e;
+  --success-light: color-mix(in srgb, #22c55e 15%, transparent);
+  --warning:       var(--chart-4);
+  --warning-light: color-mix(in srgb, var(--chart-4) 15%, transparent);
+  --info:          var(--chart-2);
+  --info-light:    color-mix(in srgb, var(--chart-2) 15%, transparent);
+}
+
+.dark {
+  --accent:       var(--ring);       /* bright green in dark mode */
+  --accent-hover: var(--ring);
+  --accent-light: color-mix(in srgb, var(--ring) 18%, transparent);
+  --danger:       #f87171;
+  --danger-light: color-mix(in srgb, #f87171 20%, transparent);
+  --success:       #4ade80;
+  --success-light: color-mix(in srgb, #4ade80 15%, transparent);
+}
