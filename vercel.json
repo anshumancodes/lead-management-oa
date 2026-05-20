@@ -1,7 +1,0 @@
-{
-  "framework": "nextjs",
-  "buildCommand": "cd ui && npm install && npm run build",
-  "outputDirectory": "ui/.next",
-  "installCommand": "cd ui && npm install",
-  "devCommand": "cd ui && npm run dev -- --port 3001"
-}
