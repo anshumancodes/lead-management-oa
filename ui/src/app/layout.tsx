@@ -6,7 +6,7 @@ import './globals.css';
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'LeadFlow — Lead Management Dashboard',
+  title: 'GigFlow — Lead Management Dashboard',
   description: 'Production-grade lead management system. Track, filter, and convert leads with ease.',
   keywords: ['lead management', 'CRM', 'sales pipeline', 'dashboard'],
 };
