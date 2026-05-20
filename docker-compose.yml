@@ -16,7 +16,7 @@ services:
       MONGO_URI: ${MONGO_URI}
       JWT_SECRET: ${JWT_SECRET}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
-      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3001}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
     networks:
       - leadflow-net
     healthcheck:
@@ -24,25 +24,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
-  # Frontend UI
-  ui:
-    build:
-      context: ./ui
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_API_URL: http://server:3000/api/v1
-    container_name: leadflow-ui
-    restart: unless-stopped
-    ports:
-      - '3001:3001'
-    depends_on:
-      server:
-        condition: service_healthy
-    environment:
-      NEXT_PUBLIC_API_URL: http://server:3000/api/v1
-    networks:
-      - leadflow-net
 
 networks:
   leadflow-net:
