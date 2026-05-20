@@ -1,26 +1,235 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
 @import "tailwindcss";
 
+/Design Tokens 
 :root {
-  --background: #ffffff;
+  --card: #fcfcfc;
+  --ring: #72e3ad;
+  --input: #f6f6f6;
+  --muted: #ededed;
+  --accent: #ededed;
+  --border: #dfdfdf;
+  --radius: 0.5rem;
+
+  --chart-1: #72e3ad;
+  --chart-2: #3b82f6;
+  --chart-3: #8b5cf6;
+  --chart-4: #f59e0b;
+  --chart-5: #10b981;
+
+  --popover: #fcfcfc;
+  --primary: #72e3ad;
+  --sidebar: #fcfcfc;
+  --secondary: #fdfdfd;
+  --background: #fcfcfc;
+
   --foreground: #171717;
+  --muted-foreground: #202020;
+  --accent-foreground: #202020;
+  --popover-foreground: #525252;
+  --primary-foreground: #1e2723;
+  --secondary-foreground: #171717;
+
+  --destructive: #ca3214;
+  --destructive-foreground: #fffcfc;
+
+  --sidebar-ring: #72e3ad;
+  --sidebar-accent: #ededed;
+  --sidebar-border: #dfdfdf;
+  --sidebar-primary: #72e3ad;
+
+  --sidebar-foreground: #707070;
+  --sidebar-accent-foreground: #202020;
+  --sidebar-primary-foreground: #1e2723;
+
+  --card-foreground: #171717;
+
+  --font-sans: "Outfit", sans-serif;
+  --font-mono: monospace;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --letter-spacing: 0.025em;
+
+  --shadow-color: #000000;
+  --shadow-opacity: 0.17;
+  --shadow-blur: 3px;
+  --shadow-spread: 0px;
+  --shadow-offset-x: 0px;
+  --shadow-offset-y: 1px;
+
+  --sidebar-width: 260px;
+  --topbar-height: 64px;
+
+  --shadow-sm:
+    0 1px 2px rgb(0 0 0 / 0.06),
+    0 1px 1px rgb(0 0 0 / 0.04);
+
+  --shadow:
+    0 2px 6px rgb(0 0 0 / 0.08),
+    0 1px 2px rgb(0 0 0 / 0.04);
+
+  --shadow-lg:
+    0 8px 24px rgb(0 0 0 / 0.12),
+    0 4px 12px rgb(0 0 0 / 0.08);
 }
+
+.dark {
+  --card: #171717;
+  --ring: #4ade80;
+  --input: #242424;
+  --muted: #1f1f1f;
+  --accent: #313131;
+  --border: #292929;
+
+  --chart-1: #4ade80;
+  --chart-2: #60a5fa;
+  --chart-3: #a78bfa;
+  --chart-4: #fbbf24;
+  --chart-5: #2dd4bf;
+
+  --popover: #242424;
+  --primary: #006239;
+  --sidebar: #121212;
+  --secondary: #242424;
+  --background: #121212;
+
+  --foreground: #e2e8f0;
+  --muted-foreground: #a2a2a2;
+  --accent-foreground: #fafafa;
+  --popover-foreground: #a9a9a9;
+  --primary-foreground: #dde8e3;
+  --secondary-foreground: #fafafa;
+
+  --destructive: #541c15;
+  --destructive-foreground: #ede9e8;
+
+  --sidebar-ring: #4ade80;
+  --sidebar-accent: #313131;
+  --sidebar-border: #292929;
+  --sidebar-primary: #006239;
+
+  --sidebar-foreground: #898989;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-primary-foreground: #dde8e3;
+
+  --card-foreground: #e2e8f0;
+
+  --shadow-sm:
+    0 1px 3px rgb(0 0 0 / 0.35);
+
+  --shadow:
+    0 4px 8px rgb(0 0 0 / 0.4);
+
+  --shadow-lg:
+    0 12px 24px rgb(0 0 0 / 0.45);
+}
+
 
 @theme inline {
+  --color-card: var(--card);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-popover: var(--popover);
+  --color-primary: var(--primary);
+  --color-sidebar: var(--sidebar);
+  --color-secondary: var(--secondary);
   --color-background: var(--background);
+
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-primary: var(--sidebar-primary);
+
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-card-foreground: var(--card-foreground);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --tracking-base: var(--letter-spacing);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  letter-spacing: var(--letter-spacing);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/*Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
